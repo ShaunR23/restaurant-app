@@ -1,10 +1,11 @@
 import { useState } from "react";
 
-function Order({subtotal, addToOrder}){
+function Order({item, price, subtotal, addToOrder, order, total }){
    
-    console.log(addToOrder)
+    
+    
     return (
-        <h2>{subtotal}</h2>
+        <p>{item} ${price}.00</p>
       );
     
 }

@@ -57,21 +57,48 @@ function App() {
   const dessertDisplay = typeDessert.map(menu => (
     <MenuList Key = {menu.id} {...menu} subtotal = {subtotal} order = {order} />
   ));
-  console.log(typeTaco)
-  console.log(typeSteak)
-  console.log(typeSide)
-  console.log(typeDessert)
-  console.log(tacoDisplay)
+
+  
+  const orderDisplay = newOrder.map( item => (
+     <Order {...item} order = {order} subtotal = {subtotal} />
+  ));
+  
+  const payNow = () =>{
+    let previousPayment = localStorage.getItem(newOrder);
+    localStorage.setItem(newOrder, JSON.stringify([newOrder, previousPayment]));
+    setTotal(0);
+    setNewOrder(0);
+  }
+  
   return (
     <>
     <Header />
-    <Order />
     
+    
+    <button type='button' onClick = {payNow}>Pay Now</button>
     <div>
-      <h3 className='menuHeader'>Menu</h3>
-                    
-                        {tacoDisplay}
+   {orderDisplay}
+   </div>
+    <p>Your Total is ${total}.00</p>
+    
+    <h2>Tacos</h2>
+   <div id='Tacos' class = 'display'>
+      {tacoDisplay}
     </div>
+    <h2>Steaks</h2>
+    <div id='Steaks' class = 'display'>
+      {steakDisplay}
+    </div>
+    <h2>Sides</h2>
+    <div id='Sides' class = 'display'>
+      {sidesDisplay}
+    </div>
+    <h2>Dessert</h2>
+    <div id="Desserts" class = 'display'>
+      {dessertDisplay}
+    </div>
+   
+    <Order />
     </>
   );
 }

@@ -11,7 +11,7 @@ const MENU = [
     },
     {
         item: 'Chicken Taco',
-        description: 'Shredded Chicken, Lettuce, Tomatoes, Cheese, and Salsa in a hard shell',
+        description: 'Chicken, Lettuce, Tomatoes, Cheese, and Salsa in a hard shell',
         price: 3,
         type: 'Entree/Taco',
         id: 2,
@@ -25,17 +25,10 @@ const MENU = [
         id: 3,
         img: 'https://diethood.com/wp-content/uploads/2021/06/pork-carnitas-7.jpg'
     },
-    {
-        item: 'Vegetarian Taco',
-        description: 'A delicious all veggie taco',
-        price: 3,
-        type: 'Entree/Taco',
-        id: 4,
-        img: 'https://www.twopeasandtheirpod.com/wp-content/uploads/2021/06/Veggie-Tacos4577.jpg'
-    },
+    
     {
         item: 'Steak Taco',
-        description: 'Sliced filet mignon, Lettuce, Tomatoes, Cheese, and Salsa in a hard shell',
+        description: 'Sliced filet mignon, Lettuce, Tomatoes, Cheese, and Salsa',
         price: 4,
         type: 'Entree/Taco',
         id: 5,
@@ -73,14 +66,8 @@ const MENU = [
         id: 9,
         img: 'https://www.foodnetwork.com/content/dam/images/food/video/0/02/020/0200/0200312.jpg'
     },
-    {
-        item: 'Sirloin Steak',
-        description: 'Cerified Angus Beef Sirloin cooked to your liking',
-        price: 18,
-        type: 'Entree/Steak',
-        id: 10,
-        img: 'https://cdn.statically.io/img/whitneybond.com/f=auto/wp-content/uploads/2021/06/steak-marinade-13.jpg'
-    },
+    
+       
     {
         item: 'Nachos',
         description: 'Cheese covered nachos with your choice of toppings',
@@ -91,7 +78,7 @@ const MENU = [
     },
     {
         item: 'Mashed Potatos',
-        description: 'Soft buttery mashed potatos',
+        description: 'Soft buttery mashed potatos covered with chives',
         price: 4,
         type: 'Side',
         id: 12,
@@ -107,7 +94,7 @@ const MENU = [
     },
     {
         item: 'Chips and Salsa',
-        description: 'Chips made in house with your choice of medium, spicy or sweet salsa',
+        description: 'Chips made in house with your choice of medium or spicy salsa',
         price: 3,
         type: 'Side',
         id: 14,
