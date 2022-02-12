@@ -3,7 +3,8 @@ import { Nav } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 
 
-function Header() {
+
+function Header({setScreen}) {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -11,13 +12,13 @@ function Header() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#Tacos">Tacos</Nav.Link>
+            <Nav.Link  href="#Tacos">Tacos</Nav.Link>
             <Nav.Link href="#Steaks">Steaks</Nav.Link>
             <Nav.Link href="#Sides">Sides</Nav.Link>
             <Nav.Link href="#Desserts">Desserts</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#My-Order">My Order</Nav.Link>
+            <Nav.Link onClick= {() => setScreen(true)} >My Order</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

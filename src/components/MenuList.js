@@ -8,7 +8,7 @@ import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 
 
-function MenuList({item, price,description, subtotal,order, img, total}) {
+function MenuList({item, price,description, subtotal,order, img,}) {
     
     const addToOrder = (e) => {
         e.preventDefault()
