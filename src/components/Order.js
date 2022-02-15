@@ -6,6 +6,8 @@ function Order({item, price, total, setTotal }){
   const subtotal = (price) => {
     setTotal(total + price)
   };
+
+  
     
     return (
       <div>

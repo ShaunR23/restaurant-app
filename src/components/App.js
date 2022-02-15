@@ -4,11 +4,19 @@ import Order from "./Order";
 import MENU from "./MenuItems";
 import Header from "../styling/Header";
 
-function App() {
+function App(props) {
   const [menu, setMenu] = useState(MENU);
   const [total, setTotal] = useState(0);
   const [newOrder, setNewOrder] = useState([]);
   const [screen, setScreen] = useState(false);
+
+  const typeTaco = menu.filter((menu) => menu.type === "Entree/Taco");
+
+  const typeSteak = menu.filter((menu) => menu.type === "Entree/Steak");
+
+  const typeSide = menu.filter((menu) => menu.type === "Side");
+
+  const typeDessert = menu.filter((menu) => menu.type === "Dessert");
 
   const order = (item, price) => {
     const newOrderItem = {
@@ -21,13 +29,9 @@ function App() {
     setTotal(total + price);
   };
 
-  const typeTaco = menu.filter((menu) => menu.type === "Entree/Taco");
-
-  const typeSteak = menu.filter((menu) => menu.type === "Entree/Steak");
-
-  const typeSide = menu.filter((menu) => menu.type === "Side");
-
-  const typeDessert = menu.filter((menu) => menu.type === "Dessert");
+  const orderDisplay = newOrder.map((item) => (
+    <Order {...item} order={order} subtotal={subtotal} />
+  ));
 
   const tacoDisplay = typeTaco.map((menu) => (
     <MenuList Key={menu.id} {...menu} subtotal={subtotal} order={order} />
@@ -45,15 +49,11 @@ function App() {
     <MenuList Key={menu.id} {...menu} subtotal={subtotal} order={order} />
   ));
 
-  const orderDisplay = newOrder.map((item) => (
-    <Order {...item} order={order} subtotal={subtotal} />
-  ));
-
   const menuScreen = (
     <>
       <p>Your Total is ${total}.00</p>
       <button onClick={() => setScreen(true)}>Your Order</button>
-      <div class='row'>
+      <div class="row">
         <h2>Tacos</h2>
         <div id="Tacos" class="display col-md-6 col-lg-3">
           {tacoDisplay}
@@ -75,11 +75,15 @@ function App() {
   );
 
   const payNow = () => {
-    let previousPayment = localStorage.getItem("newOrder");
-    localStorage.setItem(
-      "newOrder",
-      JSON.stringify([newOrder, previousPayment])
-    );
+    if (localStorage.getItem("orders")) {
+      var orders = JSON.parse(localStorage.getItem("orders"));
+      orders.push(newOrder);
+    } else {
+      var orders = [newOrder];
+    }
+
+    localStorage.setItem("orders", JSON.stringify(orders));
+
     setTotal(0);
     setNewOrder([]);
     setScreen(false);
