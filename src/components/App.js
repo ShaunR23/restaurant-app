@@ -86,7 +86,7 @@ function App(props) {
 
     setTotal(0);
     setNewOrder([]);
-    setScreen(false);
+    setSelection('menuScreen');
   };
   const myOrder = (
     <>
