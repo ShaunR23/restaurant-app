@@ -52,7 +52,7 @@ function App(props) {
   const menuScreen = (
     <>
       <p>Your Total is ${total}.00</p>
-      <button onClick={() => selection('myOrder')}>Your Order</button>
+      <button onClick={() => setSelection('myOrder')}>Your Order</button>
       <div class="row">
         <h2>Tacos</h2>
         <div id="Tacos" class="display col-md-6 col-lg-3">
