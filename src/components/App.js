@@ -8,7 +8,7 @@ function App(props) {
   const [menu, setMenu] = useState(MENU);
   const [total, setTotal] = useState(0);
   const [newOrder, setNewOrder] = useState([]);
-  const [screen, setScreen] = useState(false);
+  const [selection, setSelection] = useState('menuScreen');
 
   const typeTaco = menu.filter((menu) => menu.type === "Entree/Taco");
 
@@ -52,7 +52,7 @@ function App(props) {
   const menuScreen = (
     <>
       <p>Your Total is ${total}.00</p>
-      <button onClick={() => setScreen(true)}>Your Order</button>
+      <button onClick={() => selection('myOrder')}>Your Order</button>
       <div class="row">
         <h2>Tacos</h2>
         <div id="Tacos" class="display col-md-6 col-lg-3">
@@ -103,7 +103,8 @@ function App(props) {
   return (
     <>
       <Header />
-      {screen ? myOrder : menuScreen}
+      {selection == 'menuScreen' ? menuScreen : null}
+      {selection == 'myOrder' ? myOrder: null}
     </>
   );
 }

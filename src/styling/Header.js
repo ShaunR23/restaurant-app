@@ -5,7 +5,7 @@ import {useState} from "react"
 
 
 
-function Header({setScreen}) {
+function Header({setSelection}) {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -19,7 +19,7 @@ function Header({setScreen}) {
             <Nav.Link href="#Desserts">Desserts</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link onClick={() => setScreen(true)}>My Order</Nav.Link>
+            <Nav.Link onClick={() => setSelection('myOrder')}>My Order</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
